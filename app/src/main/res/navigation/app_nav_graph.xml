@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_nav_graph"
+    app:startDestination="@id/nav_recipe">
+
+    <fragment
+        android:id="@+id/nav_recipe"
+        android:name="com.example.todos.fragments.recipe.RecipeFragment"
+        android:label="Recipes"
+        tools:layout="@layout/fragment_recipe">
+        <action
+            android:id="@+id/action_recipeFragment_to_updateRecipeFragment"
+            app:destination="@+id/nav_update_recipe">
+            <argument
+                android:name="currentRecipe"
+                app:argType="com.example.todos.data.entities.Recipe" />
+        </action>
+        <argument
+            android:name="categoryFilter"
+            app:argType="com.example.todos.data.entities.Category"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_add_recipe"
+        android:name="com.example.todos.fragments.recipe.AddRecipeFragment"
+        android:label="Add Recipe"
+        tools:layout="@layout/fragment_add_recipe">
+        <action
+            android:id="@+id/action_choose_category"
+            app:destination="@id/nav_category">
+            <argument
+                android:name="isChoose"
+                app:argType="boolean" />
+        </action>
+        <argument
+            android:name="isBack"
+            app:argType="boolean" />
+        <action
+            android:id="@+id/action_nav_add_recipe_to_nav_choose_ingredient"
+            app:destination="@id/nav_choose_ingredient" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_update_recipe"
+        android:name="com.example.todos.fragments.recipe.UpdateRecipeFragment"
+        android:label="Update Recipe"
+        tools:layout="@layout/fragment_update_recipe">
+        <argument
+            android:name="currentRecipe"
+            app:argType="com.example.todos.data.entities.Recipe" />
+        <action
+            android:id="@+id/action_nav_update_recipe_to_nav_choose_ingredient"
+            app:destination="@id/nav_choose_ingredient" />
+        <action
+            android:id="@+id/action_nav_update_recipe_to_nav_category"
+            app:destination="@id/nav_category" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_ingredient"
+        android:name="com.example.todos.fragments.ingredient.IngredientFragment"
+        android:label="Ingredients"
+        tools:layout="@layout/fragment_ingredient">
+        <action
+            android:id="@+id/action_ingredientFragment_to_updateIngredientFragment"
+            app:destination="@+id/nav_update_ingredient">
+            <argument
+                android:name="currentIngredient"
+                app:argType="com.example.todos.data.entities.Ingredient" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_add_ingredient"
+        android:name="com.example.todos.fragments.ingredient.AddIngredientFragment"
+        android:label="Add Ingredient"
+        tools:layout="@layout/fragment_add_ingredient">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_update_ingredient"
+        android:name="com.example.todos.fragments.ingredient.UpdateIngredientFragment"
+        android:label="Update Ingredient"
+        tools:layout="@layout/fragment_update_ingredient">
+        <argument
+            android:name="currentIngredient"
+            app:argType="com.example.todos.data.entities.Ingredient" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_category"
+        android:name="com.example.todos.fragments.category.CategoryFragment"
+        android:label="Categories"
+        tools:layout="@layout/fragment_category">
+        <action
+            android:id="@+id/action_categoryFragment_to_updateCategoryFragment"
+            app:destination="@+id/nav_update_category">
+            <argument
+                android:name="currentCategory"
+                app:argType="com.example.todos.data.entities.Category" />
+        </action>
+
+        <argument
+            android:name="isChoose"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="isUpdate"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <action
+            android:id="@+id/action_nav_category_to_nav_recipe"
+            app:destination="@id/nav_recipe" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_add_category"
+        android:name="com.example.todos.fragments.category.AddCategoryFragment"
+        android:label="Add Category"
+        tools:layout="@layout/fragment_add_category" />
+    <fragment
+        android:id="@+id/nav_update_category"
+        android:name="com.example.todos.fragments.category.UpdateCategoryFragment"
+        android:label="Update Category"
+        tools:layout="@layout/fragment_update_category">
+        <argument
+            android:name="currentCategory"
+            app:argType="com.example.todos.data.entities.Category" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_diary"
+        android:name="com.example.todos.fragments.diary.DiaryFragment"
+        android:label="Diary"
+        tools:layout="@layout/fragment_diary" >
+        <action
+            android:id="@+id/action_nav_diary_to_nav_diary_page"
+            app:destination="@id/nav_diary_page" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_diary_page"
+        android:name="com.example.todos.fragments.diary.DiaryPageFragment"
+        android:label="DiaryPage"
+        tools:layout="@layout/fragment_diary_page">
+        <argument
+            android:name="currentDiary"
+            app:argType="com.example.todos.data.entities.Diary" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_choose_ingredient"
+        android:name="com.example.todos.fragments.ingredient.ChooseIngredientFragment"
+        android:label="ChooseIngredient"
+        tools:layout="@layout/fragment_choose_ingredient">
+
+        <argument
+            android:name="isUpdate"
+            app:argType="boolean" />
+    </fragment>
+
+</navigation>

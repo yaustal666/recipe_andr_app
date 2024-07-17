@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/recipes_button"
+        android:enabled="true"
+        android:icon="@drawable/home_icon"
+        android:title="Recipes"/>
+    <item
+        android:id="@+id/ingredients_button"
+        android:enabled="true"
+        android:icon="@drawable/recipe_icon"
+        android:title="Ingredients"/>
+    <item
+        android:id="@+id/diary_button"
+        android:enabled="true"
+        android:icon="@drawable/diary_ion"
+        android:title="Diary"/>
+    <item
+        android:id="@+id/category_button"
+        android:enabled="true"
+        android:icon="@drawable/category_icon"
+        android:title="Category"/>
+
+</menu>
