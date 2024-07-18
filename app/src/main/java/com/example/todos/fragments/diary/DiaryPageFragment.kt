@@ -23,7 +23,7 @@ class DiaryPageFragment : Fragment() {
         _binding = FragmentDiaryPageBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        binding.diaryTitle.text = args.currentDiary.date.toString()
+        binding.diaryTitle.text = args.currentDiary.date
         binding.diaryTotalCalories.text = args.currentDiary.calories.toString()
 
         if(args.currentDiary.recipes.isNotEmpty()) {
