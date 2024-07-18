@@ -54,13 +54,17 @@ class UpdateRecipeFragment : Fragment() {
         binding.updateRecipeCalories.setText(args.currentRecipe.calories.toString())
 
         binding.updateRecipeCategory.text = args.currentRecipe.category?.name ?: "Category"
-        var inglist = ""
-        for (i in args.currentRecipe.ingredients) {
-            inglist += i.name
-            inglist += "\n"
-        }
+        if(args.currentRecipe.ingredients.isEmpty()) {
+            binding.updateRecipeIngredients.text = "Choose Ingredients"
+        } else {
+            var inglist = ""
+            for (i in args.currentRecipe.ingredients) {
+                inglist += i.name
+                inglist += "\n"
+            }
 
-        binding.updateRecipeIngredients.text = inglist
+            binding.updateRecipeIngredients.text = inglist
+        }
 
         if (isBack) {
             if(chosenIngredients.isNotEmpty()) {
@@ -110,11 +114,11 @@ class UpdateRecipeFragment : Fragment() {
         val calories = binding.updateRecipeCalories.text.toString()
 
         val category =
-            if (chosenCategory == args.currentRecipe.category) args.currentRecipe.category
+            if (chosenCategory == null) args.currentRecipe.category
             else chosenCategory
 
         val ingredients =
-            if (chosenIngredients == args.currentRecipe.ingredients) args.currentRecipe.ingredients
+            if (chosenIngredients.isEmpty()) args.currentRecipe.ingredients
             else chosenIngredients
 
         if (inputValidate(name, timeToCook, preparation, cookingProcess, serving, calories)) {
@@ -131,7 +135,6 @@ class UpdateRecipeFragment : Fragment() {
                 false
             )
             recipeViewModel.updateRecipe(recipe)
-            Toast.makeText(requireContext(), "Successfully updated!", Toast.LENGTH_LONG).show()
         } else {
             Toast.makeText(requireContext(), "You forgot to fill the fields!", Toast.LENGTH_LONG)
                 .show()
