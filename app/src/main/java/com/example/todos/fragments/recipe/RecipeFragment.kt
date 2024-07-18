@@ -57,9 +57,9 @@ class RecipeFragment : Fragment() {
 
         val date = SimpleDateFormat("yyyy-MM-dd").format(java.util.Date())
         var diary: Diary? = null
-        diaryViewModel.getDiaryByDate(date).observe(viewLifecycleOwner, Observer { item ->
+        diaryViewModel.getDiaryByDate(date).observe(viewLifecycleOwner) { item ->
             diary = item
-        })
+        }
 
         val adapter = RecipeAdapter() { recipe ->
             run {
@@ -81,23 +81,24 @@ class RecipeFragment : Fragment() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        recipeViewModel.getAllRecipes.observe(viewLifecycleOwner, Observer { recipe ->
+        recipeViewModel.getAllRecipes.observe(viewLifecycleOwner) { recipe ->
             run {
                 var recipeList = recipe
 
-                if(categoryFilter != null) {
+                if (categoryFilter != null) {
                     binding.filterInterface.visibility = VISIBLE
                     binding.currentCategoryFilter.text = categoryFilter!!.name
-                    recipeList = recipeList.filter { (it.category?.name ?: "") == categoryFilter!!.name }
+                    recipeList =
+                        recipeList.filter { (it.category?.name ?: "") == categoryFilter!!.name }
                 }
 
-                if(isSortByCalories) {
+                if (isSortByCalories) {
                     recipeList = recipeList.sortedBy { it.calories }
                 }
 
                 adapter.setData(recipeList)
             }
-        })
+        }
 
         binding.resetFilterButton.setOnClickListener() {
             categoryFilter = null

@@ -27,7 +27,7 @@ class DiaryFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentDiaryBinding.inflate(inflater, container, false)
         val view = binding.root
 
@@ -38,15 +38,15 @@ class DiaryFragment : Fragment() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        diaryViewModel.getDiary.observe(viewLifecycleOwner, Observer { diary ->
+        diaryViewModel.getDiary.observe(viewLifecycleOwner) { diary ->
             adapter.setData(diary)
-        })
+        }
 
         val date = SimpleDateFormat("yyyy-MM-dd").format(java.util.Date())
         var diary : Diary? = null
-        diaryViewModel.getDiaryByDate(date).observe(viewLifecycleOwner, Observer {item ->
+        diaryViewModel.getDiaryByDate(date).observe(viewLifecycleOwner) { item ->
             diary = item
-        })
+        }
 
         binding.addDiaryButton.setOnClickListener() {
             if ((diary?.date ?: "") != date) {

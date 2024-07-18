@@ -19,16 +19,16 @@ class DiaryPageFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentDiaryPageBinding.inflate(inflater, container, false)
         val view = binding.root
 
         binding.diaryTitle.text = args.currentDiary.date.toString()
         binding.diaryTotalCalories.text = args.currentDiary.calories.toString()
 
-        if(args.currentDiary.recipes != null) {
+        if(args.currentDiary.recipes.isNotEmpty()) {
             var recipeNames = ""
-            for (i in args.currentDiary.recipes!!) {
+            for (i in args.currentDiary.recipes) {
                 recipeNames += i.name
                 recipeNames += "\n"
             }

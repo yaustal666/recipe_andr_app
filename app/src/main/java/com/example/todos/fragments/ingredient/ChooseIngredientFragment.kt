@@ -30,7 +30,7 @@ class ChooseIngredientFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentChooseIngredientBinding.inflate(inflater, container, false)
         val view = binding.root
 
@@ -62,10 +62,10 @@ class ChooseIngredientFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         ingredientViewModel.getAllIngredients.observe(
-            viewLifecycleOwner,
-            Observer { ingredient ->
-                adapter.setData(ingredient)
-            })
+            viewLifecycleOwner
+        ) { ingredient ->
+            adapter.setData(ingredient)
+        }
 
         return view
     }
