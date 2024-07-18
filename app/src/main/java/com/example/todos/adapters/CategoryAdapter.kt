@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.todos.data.entities.Category
 import com.example.todos.databinding.RecyclerCategoryElementBinding
 import com.example.todos.fragments.category.CategoryFragmentDirections
-import com.example.todos.fragments.ingredient.IngredientFragmentDirections
 
 class CategoryAdapter (
     private val listener: (Category) -> Unit

@@ -12,12 +12,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.todos.R
 import com.example.todos.data.entities.Category
-import com.example.todos.data.entities.Ingredient
 import com.example.todos.databinding.FragmentUpdateCategoryBinding
-import com.example.todos.databinding.FragmentUpdateIngredientBinding
-import com.example.todos.fragments.ingredient.UpdateIngredientFragmentArgs
 import com.example.todos.viewModel.CategoryViewModel
-import com.example.todos.viewModel.IngredientViewModel
 
 class UpdateCategoryFragment : Fragment() {
 

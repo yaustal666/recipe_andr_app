@@ -11,7 +11,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.room.Update
 import com.example.todos.R
 import com.example.todos.adapters.CategoryAdapter
 import com.example.todos.data.entities.Category

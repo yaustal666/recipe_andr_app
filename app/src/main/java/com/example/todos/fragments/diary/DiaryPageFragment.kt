@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.todos.R
 import com.example.todos.databinding.FragmentDiaryPageBinding
 
 class DiaryPageFragment : Fragment() {

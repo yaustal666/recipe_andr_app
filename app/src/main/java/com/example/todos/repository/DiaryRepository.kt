@@ -6,7 +6,6 @@ import com.example.todos.data.entities.Diary
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.sql.Date
 
 class DiaryRepository(private val diaryDao: DiaryDao) {
 

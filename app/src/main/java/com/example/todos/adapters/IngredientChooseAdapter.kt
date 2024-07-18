@@ -6,8 +6,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todos.data.entities.Ingredient
 import com.example.todos.databinding.ReciclerChooseIngredientElementBinding
-import com.example.todos.databinding.RecyclerIngredientElementBinding
-import com.example.todos.databinding.RecyclerRecipeElementBinding
 
 class IngredientChooseAdapter(
     private val listener: (Ingredient, Boolean) -> Unit

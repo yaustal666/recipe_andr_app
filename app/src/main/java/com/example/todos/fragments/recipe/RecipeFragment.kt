@@ -18,7 +18,6 @@ import com.example.todos.R
 import com.example.todos.adapters.RecipeAdapter
 import com.example.todos.data.entities.Category
 import com.example.todos.data.entities.Diary
-import com.example.todos.data.entities.Recipe
 import com.example.todos.databinding.FragmentRecipeBinding
 import com.example.todos.viewModel.DiaryViewModel
 import com.example.todos.viewModel.RecipeViewModel

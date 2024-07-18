@@ -6,7 +6,6 @@ import com.example.todos.data.entities.Ingredient
 import com.example.todos.data.entities.Recipe
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import java.sql.Date
 
 class Converters {
     @TypeConverter

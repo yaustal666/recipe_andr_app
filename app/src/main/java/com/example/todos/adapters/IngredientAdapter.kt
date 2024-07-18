@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.example.todos.R
 import com.example.todos.data.entities.Ingredient
 import com.example.todos.databinding.RecyclerIngredientElementBinding
 import com.example.todos.fragments.ingredient.IngredientFragmentDirections

@@ -10,13 +10,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.room.Update
-import com.example.todos.R
-import com.example.todos.adapters.IngredientAdapter
 import com.example.todos.adapters.IngredientChooseAdapter
 import com.example.todos.data.entities.Ingredient
 import com.example.todos.databinding.FragmentChooseIngredientBinding
-import com.example.todos.databinding.FragmentIngredientBinding
 import com.example.todos.fragments.recipe.AddRecipeFragment
 import com.example.todos.fragments.recipe.UpdateRecipeFragment
 import com.example.todos.viewModel.IngredientViewModel
